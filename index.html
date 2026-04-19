@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AchadinhosdoLar</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Varela+Round&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <img src="imgs/logo.png" alt="AchadinhosdoLar Logo" class="site-logo">
+        
+        <div class="menu-mobile-trigger" id="menuToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <nav class="tabs" id="navTabs">
+            <button class="tab-btn active" onclick="filterItems('all')">Todos</button>
+            <button class="tab-btn" onclick="filterItems('eletro')">Eletrodomésticos</button>
+            <button class="tab-btn" onclick="filterItems('utensilio')">Utensílios</button>
+        </nav>
+    </header>
+
+    <main class="container" id="productGrid">
+        <div class="card" data-category="eletro">
+            <img src="https://via.placeholder.com/300x200?text=Mixer" alt="Mixer">
+            <h3>Mixer Premium</h3>
+            <p>Potente e silencioso, no azul-turquesa da nossa logo!</p>
+            <button class="btn-comprar">Comprar</button>
+        </div>
+        <div class="card" data-category="utensilio">
+            <img src="https://via.placeholder.com/300x200?text=Panela" alt="Panela">
+            <h3>Jogo de Panelas</h3>
+            <p>Antiaderente de alta qualidade, ideal para ensopados.</p>
+            <button class="btn-comprar">Comprar</button>
+        </div>
+        <div class="card" data-category="utensilio">
+            <img src="https://via.placeholder.com/300x200?text=Potes" alt="Potes">
+            <h3>Mini Potes Coloridos</h3>
+            <p>Perfeitos para guardar temperos e sobras.</p>
+            <button class="btn-comprar">Comprar</button>
+        </div>
+    </main>
+
+    <button id="btnTop" class="btn-top" onclick="scrollToTop()">↑</button>
+
+    <script src="script.js"></script>
+</body>
+</html>
