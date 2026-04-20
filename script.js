@@ -1,19 +1,23 @@
+// --- 1. SELEÇÃO DE ELEMENTOS ---
 const menuToggle = document.getElementById('menuToggle');
 const navTabs = document.getElementById('navTabs');
 const btnTop = document.getElementById("btnTop");
+const searchBar = document.getElementById('searchBar');
 
-// Toggle Menu
-menuToggle.addEventListener('click', () => {
-    navTabs.classList.toggle('active-menu');
-});
-console.log("O script carregou com sucesso!");
-// Filtro (Agora recebe o elemento clicado 'el' como parâmetro)
+// --- 2. MENU MOBILE ---
+if (menuToggle) {
+    menuToggle.addEventListener('click', () => {
+        navTabs.classList.toggle('active-menu');
+    });
+}
+
+// --- 3. FILTRO DE CATEGORIAS ---
 function filterItems(category, el) {
-    // 1. Remove 'active' de todos e adiciona no clicado (el)
+    // Remove 'active' de todos os botões e adiciona no clicado
     document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
     el.classList.add('active');
 
-    // 2. Lógica de filtrar os cards
+    // Filtra os cards
     document.querySelectorAll('.card').forEach(card => {
         if (category === 'all' || card.getAttribute('data-category') === category) {
             card.classList.remove('hidden');
@@ -22,35 +26,49 @@ function filterItems(category, el) {
         }
     });
 
-    // 3. Fecha o menu no mobile
+    // Fecha o menu no mobile após clicar
     if (window.innerWidth <= 768) {
         navTabs.classList.remove('active-menu');
     }
 }
 
-// Botão Topo
-window.onscroll = function() {
-    btnTop.style.display = (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) ? "block" : "none";
-};
-
-function scrollToTop() {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-}
-const searchBar = document.getElementById('searchBar');
-
-searchBar.addEventListener('input', () => {
-    const searchTerm = searchBar.value.toLowerCase();
-    const cards = document.querySelectorAll('.card');
-
-    cards.forEach(card => {
-        // Pega o texto do título (h3) da card
-        const title = card.querySelector('h3').innerText.toLowerCase();
-        
-        // Verifica se o título contém o que foi digitado
-        if (title.includes(searchTerm)) {
-            card.classList.remove('hidden');
+// --- 4. BOTÃO TOPO (SCROLL) ---
+// Monitora a rolagem da página
+window.addEventListener('scroll', () => {
+    if (btnTop) {
+        // window.scrollY é mais confiável no mobile que scrollTop
+        if (window.scrollY > 300) {
+            btnTop.style.display = "block";
         } else {
-            card.classList.add('hidden');
+            btnTop.style.display = "none";
         }
-    });
+    }
 });
+
+// Ação do clique no botão
+if (btnTop) {
+    btnTop.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+}
+
+// --- 5. BUSCA (SEARCH BAR) ---
+if (searchBar) {
+    searchBar.addEventListener('input', () => {
+        const searchTerm = searchBar.value.toLowerCase();
+        const cards = document.querySelectorAll('.card');
+
+        cards.forEach(card => {
+            const title = card.querySelector('h3').innerText.toLowerCase();
+            
+            // Exibe o card se o título contiver o texto digitado
+            if (title.includes(searchTerm)) {
+                card.classList.remove('hidden');
+            } else {
+                card.classList.add('hidden');
+            }
+        });
+    });
+}
+
+console.log("Script carregado e pronto!");

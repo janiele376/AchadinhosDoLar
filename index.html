@@ -8,20 +8,21 @@
 </head>
 <body>
 
-    <header class="main-header">
-        <img src="imgs/logo.png" alt="AchadinhosdoLar Logo" class="site-logo">
-        
-        <div class="menu-mobile-trigger" id="menuToggle">
-            <span></span><span></span><span></span>
-        </div>
+<header class="main-header">
+    <img src="imgs/logo.png" alt="AchadinhosdoLar Logo" class="site-logo">
+    
+    <input type="text" id="searchBar" placeholder="Pesquisar produtos..." class="search-input">
 
-        <nav class="tabs" id="navTabs">
-            <a href="javascript:void(0)" class="tab-btn active" onclick="filterItems('all', this)">Todos</a>
-            <a href="javascript:void(0)" class="tab-btn" onclick="filterItems('eletro', this)">Eletrodomésticos</a>
-            <a href="javascript:void(0)" class="tab-btn" onclick="filterItems('utensilio', this)">Utensílios</a>
-            <input type="text" id="searchBar" placeholder="Pesquisar..." class="search-input">
-        </nav>
-    </header>
+    <div class="menu-mobile-trigger" id="menuToggle">
+        <span></span><span></span><span></span>
+    </div>
+
+    <nav class="tabs" id="navTabs">
+        <a href="javascript:void(0)" class="tab-btn active" onclick="filterItems('all', this)">Todos</a>
+        <a href="javascript:void(0)" class="tab-btn" onclick="filterItems('eletro', this)">Eletrodomésticos</a>
+        <a href="javascript:void(0)" class="tab-btn" onclick="filterItems('utensilio', this)">Utensílios</a>
+    </nav>
+</header>
 
     <main class="container" id="grid-eletro">
         <div class="card" data-category="eletro">

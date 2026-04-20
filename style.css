@@ -155,3 +155,34 @@ body { font-family: var(--font-body); margin: 0; padding: 20px; background-color
     border-color: var(--logo-turquoise);
     box-shadow: 0 0 5px rgba(89, 204, 217, 0.3);
 }
+/* Garante que o header seja flexível e permita quebra de linha no mobile */
+.main-header {
+    display: flex;
+    flex-wrap: wrap; /* Permite que os itens pulem de linha se o espaço acabar */
+    align-items: center;
+    gap: 15px;
+    padding: 15px 5%;
+}
+
+/* Deixa a pesquisa mais elegante no topo */
+.search-input {
+    flex: 1; /* Faz ela crescer e ocupar o espaço disponível */
+    padding: 8px 15px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    min-width: 200px;
+}
+
+/* Ajustes específicos para mobile */
+@media (max-width: 768px) {
+    .search-input {
+        order: 3; /* Coloca a pesquisa na linha de baixo no mobile */
+        width: 100%; /* Ocupa a largura total */
+        margin-top: 10px;
+    }
+    
+    /* Ajuste para o menu não ficar colado na pesquisa */
+    .tabs {
+        top: 130px; 
+    }
+}
