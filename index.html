@@ -4,9 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AchadinhosdoLar</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Varela+Round&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -15,41 +12,90 @@
         <img src="imgs/logo.png" alt="AchadinhosdoLar Logo" class="site-logo">
         
         <div class="menu-mobile-trigger" id="menuToggle">
-            <span></span>
-            <span></span>
-            <span></span>
+            <span></span><span></span><span></span>
         </div>
 
         <nav class="tabs" id="navTabs">
-            <button class="tab-btn active" onclick="filterItems('all')">Todos</button>
-            <button class="tab-btn" onclick="filterItems('eletro')">Eletrodomésticos</button>
-            <button class="tab-btn" onclick="filterItems('utensilio')">Utensílios</button>
+            <a href="javascript:void(0)" class="tab-btn active" onclick="filterItems('all', this)">Todos</a>
+            <a href="javascript:void(0)" class="tab-btn" onclick="filterItems('eletro', this)">Eletrodomésticos</a>
+            <a href="javascript:void(0)" class="tab-btn" onclick="filterItems('utensilio', this)">Utensílios</a>
+            <input type="text" id="searchBar" placeholder="Pesquisar..." class="search-input">
         </nav>
     </header>
 
-    <main class="container" id="productGrid">
+    <main class="container" id="grid-eletro">
         <div class="card" data-category="eletro">
-            <img src="https://via.placeholder.com/300x200?text=Mixer" alt="Mixer">
-            <h3>Mixer Premium</h3>
-            <p>Potente e silencioso, no azul-turquesa da nossa logo!</p>
-            <button class="btn-comprar">Comprar</button>
+            <img src="imgs/cafeteira.jpg" alt="Cafeteira">
+            <h3>Cafeteira Elétrica Cadence</h3>
+            <a href="https://amzn.to/4tmUIjF" class="btn-comprar" target="_blank">Comprar</a>
         </div>
-        <div class="card" data-category="utensilio">
-            <img src="https://via.placeholder.com/300x200?text=Panela" alt="Panela">
-            <h3>Jogo de Panelas</h3>
-            <p>Antiaderente de alta qualidade, ideal para ensopados.</p>
-            <button class="btn-comprar">Comprar</button>
+        <div class="card" data-category="eletro">
+            <img src="imgs/mixer.jpg" alt="Mixer">
+            <h3>Mixer Power Inox 3 em 1</h3>
+            <a href="https://amzn.to/4cUDeFi" class="btn-comprar" target="_blank">Comprar</a>
         </div>
-        <div class="card" data-category="utensilio">
-            <img src="https://via.placeholder.com/300x200?text=Potes" alt="Potes">
-            <h3>Mini Potes Coloridos</h3>
-            <p>Perfeitos para guardar temperos e sobras.</p>
-            <button class="btn-comprar">Comprar</button>
+        <div class="card" data-category="eletro">
+            <img src="imgs/cooktop.jpg" alt="Cooktop">
+            <h3>Cooktop Fischer 5 Bocas</h3>
+            <a href="https://amzn.to/4exijte" class="btn-comprar" target="_blank">Comprar</a>
         </div>
     </main>
 
-    <button id="btnTop" class="btn-top" onclick="scrollToTop()">↑</button>
+    <main class="container" id="grid-utensilio">
+        <div class="card" data-category="utensilio">
+            <img src="imgs/panelas.jpg" alt="Panela">
+            <h3>Jogo de Panelas Brinox</h3>
+            <a href="https://amzn.to/4sJxtiA" class="btn-comprar" target="_blank">Comprar</a>
+        </div>
+        <div class="card" data-category="utensilio">
+            <img src="imgs/taças.jpg" alt="Taças">
+            <h3>Jogo de 6 Taças Diamond</h3>
+            <a href="https://amzn.to/42imiTb" class="btn-comprar" target="_blank">Comprar</a>
+        </div>
+        <div class="card" data-category="utensilio">
+            <img src="imgs/frasco.jpg" alt="Frasco">
+            <h3>Frasco dispensador de azeite</h3>
+            <a href="https://amzn.to/424nART" class="btn-comprar" target="_blank">Comprar</a>
+        </div>
+    </main>
 
+    <main class="container" id="grid-utensilio">
+        <div class="card" data-category="utensilio">
+            <img src="imgs/faqueiro.jpg" alt="Faqueiro">
+            <h3>Faqueiro Inox 20 peças Leme Azul - Tramontina </h3>
+            <a href="https://amzn.to/4dU3ReH" class="btn-comprar" target="_blank">Comprar</a>
+        </div>
+        <div class="card" data-category="utensilio">
+            <img src="imgs/utensilios.jpg" alt="Utensílios">
+            <h3>Kit 12 Utensílios Silicone</h3>
+            <a href="https://amzn.to/48KvDqt" class="btn-comprar" target="_blank">Comprar</a>
+        </div>
+        <div class="card" data-category="utensilio">
+            <img src="imgs/coqueteleira.jpg" alt="Coqueteleira">
+            <h3>Coqueteleira Shaker 500ml</h3>
+            <a href="https://amzn.to/3Qxb6zq" class="btn-comprar" target="_blank">Comprar</a>
+        </div>
+    </main>
+
+    <main class="container" id="grid-eletro">
+        <div class="card" data-category="eletro">
+            <img src="imgs/liquidificador.jpg" alt="Liquidificador">
+            <h3>Liquidificador Mondial Turbo</h3>
+            <a href="https://amzn.to/4tqHdiW" class="btn-comprar" target="_blank">Comprar</a>
+        </div>
+        <div class="card" data-category="eletro">
+            <img src="imgs/purificador.jpg" alt="Purificador">
+            <h3>Purificador de Água Eletrônico Colormaq Natural/Gelada Grafito Bivolt </h3>
+            <a href="https://amzn.to/4vGuf22" class="btn-comprar" target="_blank">Comprar</a>
+        </div>
+        <div class="card" data-category="eletro">
+            <img src="imgs/microondas.jpg" alt="Micro-ondas">
+            <h3>Micro-ondas 33L Philco Limpa Fácil PMO38E 1400W 220V </h3>
+            <a href="https://amzn.to/4sNfCrc" class="btn-comprar" target="_blank">Comprar</a>
+        </div>
+    </main>
+
+    <button id="btnTop" class="btn-top">↑</button>
     <script src="script.js"></script>
 </body>
 </html>

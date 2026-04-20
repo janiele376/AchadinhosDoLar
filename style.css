@@ -47,26 +47,83 @@ body { font-family: var(--font-body); margin: 0; padding: 20px; background-color
 /* Tabs */
 .tabs { display: flex; gap: 15px; }
 
+/* Estilo padrão das abas */
 .tab-btn { 
+    text-decoration: none !important; /* Tira a linha de baixo de uma vez */
     font-family: var(--font-heading);
-    font-size: 1.1em;
-    padding: 10px 20px; 
+    font-size: 1.3em;
+    padding: 12px 25px; 
     cursor: pointer; 
-    border: 2px solid #e1e1e1; 
+    border: 2px solid var(--logo-turquoise); 
     background: white; 
+    color: var(--logo-turquoise); 
     border-radius: 50px; 
-    transition: 0.3s; 
+    transition: 0.3s;
+    display: inline-block; /* Importante para link se comportar como botão */
 }
 
-.tab-btn.active { background: var(--logo-turquoise); color: white; border-color: var(--logo-turquoise); }
+.tab-btn.active { 
+    background: var(--logo-turquoise) !important; 
+    color: white !important; 
+}
+
+/* Garante que o link não mude de cor quando passar o mouse ou clicar */
+.tab-btn:hover, .tab-btn:visited, .tab-btn:active {
+    text-decoration: none !important;
+}
+/* Garante que links visitados não fiquem roxos */
+.tab-btn:visited {
+    color: var(--logo-turquoise);
+}
 
 /* Grid */
 .container { display: grid; gap: 25px; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); max-width: 1200px; margin: 0 auto; }
 
-.card { background: white; padding: 20px; border-radius: 20px; border: 1px solid #f0f0f0; box-shadow: 0 6px 12px rgba(0,0,0,0.06); }
-.card img { width: 100%; height: 220px; object-fit: cover; border-radius: 15px; }
-.btn-comprar { width: 100%; padding: 12px; background: var(--logo-coral); color: white; border: none; border-radius: 12px; cursor: pointer; }
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 20px;
+    border: 1px solid #f0f0f0;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.06);
+    
+    /* Adicione estas 3 linhas para o alinhamento perfeito */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+}
 
+.card img {
+    width: 100%;
+    height: 200px; /* Altura fixa para manter todas iguais */
+    object-fit: cover; /* Garante que a imagem preencha sem distorcer */
+    border-radius: 15px;
+    margin-bottom: 15px; /* Espaço entre a imagem e o texto */
+}
+
+/* Garante que o texto dentro da card ocupe o espaço necessário */
+.card-content {
+    flex-grow: 1;
+}
+.btn-comprar { 
+    width: 100%; 
+    padding: 12px; 
+    background: var(--logo-coral); 
+    color: white; 
+    border-radius: 12px; 
+    cursor: pointer; 
+    
+    /* Ajustes para o link (<a>) se comportar como botão */
+    display: block;           /* Faz o link ocupar a largura total */
+    text-align: center;       /* Centraliza o texto */
+    text-decoration: none;    /* Remove a linha debaixo */
+    box-sizing: border-box;   /* Garante que o padding não quebre a largura */
+    transition: background 0.3s;
+}
+
+/* Efeito ao passar o mouse */
+.btn-comprar:hover {
+    background: #d96246;
+}
 /* Botão Topo */
 .btn-top { position: fixed; bottom: 30px; right: 30px; display: none; background-color: var(--logo-turquoise); color: white; width: 50px; height: 50px; border-radius: 50%; border: none; font-size: 24px; cursor: pointer; z-index: 1000; }
 
@@ -79,4 +136,22 @@ body { font-family: var(--font-body); margin: 0; padding: 20px; background-color
         width: 100%; padding: 20px; flex-direction: column; z-index: 100;
     }
     .tabs.active-menu { display: flex; }
+}
+.hidden {
+    display: none !important;
+}
+.search-input {
+    width: 250px; /* Tamanho compacto */
+    padding: 8px 15px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    font-family: var(--font-body);
+    font-size: 0.9em;
+    outline: none;
+    transition: 0.3s;
+}
+
+.search-input:focus {
+    border-color: var(--logo-turquoise);
+    box-shadow: 0 0 5px rgba(89, 204, 217, 0.3);
 }
